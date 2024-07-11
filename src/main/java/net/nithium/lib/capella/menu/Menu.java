@@ -57,10 +57,13 @@ public class Menu {
             throw new IllegalStateException("Menu slot" + slot +" already contains an item");
         }
 
+        menu.setItemStack(slot, itemStack);
+
         MenuItem menuItem = MenuItem.builder()
                 .material(itemStack.material())
                 .amount(itemStack.amount())
                 .slot(slot)
+                .name(itemStack.get(ItemComponent.ITEM_NAME).asComponent())
                 .onClick(event -> event.getSlot())
                 .build();
         items.add(menuItem);
@@ -71,6 +74,12 @@ public class Menu {
         if (menu.getItemStack(menuItem.getSlot()) != null) {
             throw new IllegalStateException("Menu slot" + menuItem.getSlot() + " already contains an item");
         }
+
+        ItemStack itemStack = ItemStack.builder(menuItem.getMaterial())
+                .set(ItemComponent.ITEM_NAME, menuItem.getName())
+                .amount(menuItem.getAmount())
+                .build();
+        menu.setItemStack(menuItem.getSlot(), itemStack);
 
         items.add(menuItem);
         return this;
