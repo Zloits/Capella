@@ -54,6 +54,7 @@ public class Core {
             });
         }
 
+
         minecraftServer.start("0.0.0.0", 25565);
     }
 }
