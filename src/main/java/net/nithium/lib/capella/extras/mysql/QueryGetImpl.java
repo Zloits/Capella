@@ -1,6 +1,5 @@
 package net.nithium.lib.capella.extras.mysql;
 
-import lombok.Builder;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import net.minestom.server.thread.Acquirable;

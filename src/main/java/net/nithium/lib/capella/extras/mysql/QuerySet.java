@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-@Builder
 public class QuerySet {
     @NonNull private Connection connection;
     @NonNull private String query;
@@ -18,7 +17,11 @@ public class QuerySet {
 
     private static boolean done;
 
-    public QuerySet() {
+    public QuerySet(@NonNull Connection connection, @NonNull String query, @NonNull List<Object> params) {
+        this.connection = connection;
+        this.query = query;
+        this.params = params;
+
         doTask();
     }
 
