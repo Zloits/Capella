@@ -21,7 +21,6 @@ public class QueryGetImpl<T> implements QueryGet<T> {
     public QueryGetImpl(Connection connection, String query, List<Object> params) {
         this.connection = connection;
         this.query = query;
-        this.selectCall = selectCall;
         this.params = params;
 
         doTask();

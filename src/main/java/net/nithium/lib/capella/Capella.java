@@ -12,8 +12,6 @@ import org.slf4j.LoggerFactory;
 
 @Getter
 public class Capella {
-
-    @Setter
     private static Capella instance;
 
     public static final Gson GSON = new Gson();
@@ -30,9 +28,10 @@ public class Capella {
     }
 
     public static Capella init() {
-        Capella capella = new Capella();
+        if (instance == null) {
+            instance = new Capella();
+        }
 
-        setInstance(capella);
-        return capella;
+        return instance;
     }
 }

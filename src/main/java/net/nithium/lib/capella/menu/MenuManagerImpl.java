@@ -19,7 +19,7 @@ public class MenuManagerImpl implements MenuManager {
 
     public MenuManagerImpl() {
         if (!folder.exists()) {
-            folder.mkdir();
+            folder.mkdirs();
         }
     }
 

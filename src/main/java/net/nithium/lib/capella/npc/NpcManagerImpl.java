@@ -15,7 +15,7 @@ public class NpcManagerImpl implements NpcManager {
 
     public NpcManagerImpl() {
         if (!folder.exists()) {
-            folder.mkdir();
+            folder.mkdirs();
         }
     }
 
