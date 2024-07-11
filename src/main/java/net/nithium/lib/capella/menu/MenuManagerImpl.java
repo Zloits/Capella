@@ -18,8 +18,10 @@ public class MenuManagerImpl implements MenuManager {
     private List<Menu> menus = new ArrayList<>();
 
     public MenuManagerImpl() {
-        if (!folder.exists()) {
-            folder.mkdirs();
+        if (!folder.exists() || folder == null) {
+            if (folder.mkdir()) {
+                Capella.LOGGER.info("Successfully created folder '/npcs/'");
+            }
         }
     }
 

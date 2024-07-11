@@ -14,14 +14,16 @@ public class NpcManagerImpl implements NpcManager {
     private List<FakePlayer> npcs = new ArrayList<>();
 
     public NpcManagerImpl() {
-        if (!folder.exists()) {
-            folder.mkdirs();
+        if (!folder.exists() || folder == null) {
+            if (folder.mkdir()) {
+                Capella.LOGGER.info("Successfully created folder '/npcs/'");
+            }
         }
     }
 
     @Override
     public FakePlayer loadNpc(@NonNull File file) {
-        if (!file.exists()) {
+        if (file == null || !file.exists()) {
             throw new NullPointerException("File: " + file.getAbsolutePath() + " does not exist");
         }
 
